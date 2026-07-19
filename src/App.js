@@ -12,6 +12,8 @@ import ring from "./img/pngtree-elegant-wedding-jewelry-set-featuring-wedding-ri
 import bride from "./img/pexels-photo-35234597.webp";
 import married from "./img/Conditions-for-getting-married-in-Quebec.jpg";
 import groom from "./img/cake-cutting-tradition-wedding-planning-yacht-charter-nyc.jpg";
+import lock from "./img/lock-solid-full.svg"
+import unlock from "./img/unlock-solid-full.svg"
 
 function App() {
     const [timeLeft, setTimeLeft] = useState("");
@@ -20,28 +22,32 @@ function App() {
     const audioRef = useRef(null);
 
     const weddingDate = useMemo(
-        () => new Date(2026, 4, 1, 18, 0, 0).getTime(),
+        () => new Date(2026, 6, 31, 18, 0, 0).getTime(),
         []
     );
 
     // ⏱ TIMER
     useEffect(() => {
-        const interval = setInterval(() => {
+        const updateTimer = () => {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            if (distance < 0) {
+            if (distance <= 0) {
                 setTimeLeft("Boshlanmoqda 🎉");
-                clearInterval(interval);
-            } else {
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance / (1000 * 60 * 60)) % 24);
-                const m = Math.floor((distance / (1000 * 60)) % 60);
-                const s = Math.floor((distance / 1000) % 60);
-
-                setTimeLeft(`${d} kun • ${h} soat • ${m} min • ${s} sek`);
+                return;
             }
-        }, 1000);
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((distance / (1000 * 60)) % 60);
+            const s = Math.floor((distance / 1000) % 60);
+
+            setTimeLeft(`${d} kun • ${h} soat • ${m} min • ${s} sek`);
+        };
+
+        updateTimer();
+
+        const interval = setInterval(updateTimer, 1000);
 
         return () => clearInterval(interval);
     }, [weddingDate]);
@@ -71,33 +77,33 @@ function App() {
             {/* HERO */}
             <motion.section className="hero">
                 <motion.div className="hero_text">
-                    <motion.h1>SHAXZOD</motion.h1>
+                    <motion.h1>AKOBIRXON</motion.h1>
                     <motion.span>&</motion.span>
-                    <motion.h1>MARJONA</motion.h1>
+                    <motion.h1>BAXORA</motion.h1>
                 </motion.div>
                 <div className="hero_div"></div>
-                <p className="date">01 MAY 2026</p>
+                <p className="date">31 Iyul 2026</p>
 
-                <div className="music_btn" onClick={toggleMusic}>
-                    <img
-                        src={isPlaying ? pause : play}
-                        alt="music"
-                        className="music_icon"
-                    />
-                </div>
+
 
 
             </motion.section>
 
             {/* INFO */}
-            <motion.section className="section sed">
+            <motion.section className="section sed">   <div className="music_btn" onClick={toggleMusic}>
+                <img
+                    src={isPlaying ? pause : play}
+                    alt="music"
+                    className="music_icon"
+                />
+            </div>
                 <h2>TO‘Y TAKLIFNOMASI</h2>
 
                 <p>
                     Assalomu alaykum! <br/>
                     Hurmatli mehmonimiz! <br/>
-                    Sizni nikoh to'yimiz munosabati bilan
-                    bo'lib o'tadigan "Visol oqshomi"ga
+                    Sizni nikoh to'yimiz munosabati bilan 31.06.2026-yil
+                    bo'lib o'tadigan <br/> "Visol oqshomi"ga
                     taklif etamiz.
                 </p>
 
@@ -113,19 +119,19 @@ function App() {
                 <img className="cake" src={groom} alt="" />
 
                 <div className="calendar">
-                    <div className="cal-header">MAY 2026</div>
+                    <div className="cal-header">IYUL 2026</div>
 
                     <div className="cal-grid">
                         {["Du", "Se", "Cho", "Pa", "Ju", "Sha", "Yak"].map(d => (
                             <div key={d}>{d}</div>
                         ))}
 
-                        {[...Array(4)].map((_, i) => (
+                        {[...Array(2)].map((_, i) => (
                             <div key={i}></div>
                         ))}
 
                         {Array.from({ length: 31 }, (_, i) => (
-                            <div key={i} className={i + 1 === 1 ? "active" : ""}>
+                            <div key={i} className={i + 1 === 31 ? "active" : ""}>
                                 {i + 1}
                             </div>
                         ))}
@@ -181,12 +187,12 @@ function App() {
             {/* FOOTER */}
             <motion.section className="footer">
                 <h1>
-                    Shaxzod <br /> & <br /> Marjona
+                    AKOBIRXON <br /> & <br /> BAXORA
                 </h1>
 
                 <img src={bride} className="bride" alt="" />
 
-                <p>Sizni kutamiz ❤️</p>
+                <p>Hurmat va ehtirom  ila <br/> A.Luqmonov hamda <br/> O.Axtamovlar  <br/> oilasi. ❤️</p>
             </motion.section>
 
         </div>
