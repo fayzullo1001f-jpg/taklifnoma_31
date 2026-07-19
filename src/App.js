@@ -12,7 +12,8 @@ import ring from "./img/pngtree-elegant-wedding-jewelry-set-featuring-wedding-ri
 import bride from "./img/pexels-photo-35234597.webp";
 import married from "./img/Conditions-for-getting-married-in-Quebec.jpg";
 import groom from "./img/cake-cutting-tradition-wedding-planning-yacht-charter-nyc.jpg";
-
+// import lock from "./img/lock-solid-full.svg"
+// import unlock from "./img/unlock-solid-full.svg"
 
 function App() {
     const [timeLeft, setTimeLeft] = useState("");
@@ -101,7 +102,7 @@ function App() {
                 <p>
                     Assalomu alaykum! <br/>
                     Hurmatli mehmonimiz! <br/>
-                    Sizni nikoh to'yimiz munosabati bilan 31.06.2026-yil
+                    Sizni nikoh to'yimiz munosabati bilan 31.07.2026-yil
                     bo'lib o'tadigan <br/> "Visol oqshomi"ga
                     taklif etamiz.
                 </p>
