@@ -192,7 +192,7 @@ function App() {
 
                 <img src={bride} className="bride" alt="" />
 
-                <p>Hurmat va ehtirom  ila <br/> A.Luqmonov hamda <br/> O.Axtamovlar  <br/> oilasi. ❤️</p>
+                <p>Hurmat va ehtirom  ila, <br/> A.Luqmonov hamda <br/> O.Axtamovlar  <br/> oilasi. ❤️</p>
             </motion.section>
 
         </div>
